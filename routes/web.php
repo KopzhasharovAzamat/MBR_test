@@ -4,6 +4,9 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
+use Laravel\Socialite\Facades\Socialite;
+
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +21,10 @@ use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/home', function () {
+    return view('home');
 });
 
 Route::get('/dashboard', function () {
@@ -48,5 +55,24 @@ Route::post('/email/verification-notification', function (Request $request) {
 
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+
+
+# github routes
+
+Route::post('/auth/redirect', function () {
+    return Socialite::driver('github')->redirect();
+})->name('login.github');
+
+Route::get('/auth/callback', function () {
+    $user = Socialite::driver('github')->user();
+    $user = User::firstOrCreate(['email' => $user->email],[
+            'name' => $user->name,
+            'password' => 'password',
+        ]);
+    Auth::login($user);
+    return redirect('/dashboard');
+});
+
 
 require __DIR__.'/auth.php';

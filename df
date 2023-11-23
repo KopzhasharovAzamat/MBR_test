@@ -1,0 +1,25 @@
+[33mcommit 403503b081572292ec02e7a5d87d5bd59c557693[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Azamat Kopzhasharov <kopzha01@gmail.com>
+Date:   Thu Nov 23 22:08:14 2023 +0600
+
+    Revert "second commit: added email verification with one error (need to be fixed), but it still works 23.11.2023"
+    
+    This reverts commit 76f210486f980c6969d653896d70311027906fc5.
+
+[33mcommit 225cb36d0d2780b0a0bb7e3f5e87840afbfdab45[m
+Author: Azamat Kopzhasharov <kopzha01@gmail.com>
+Date:   Thu Nov 23 22:07:29 2023 +0600
+
+    jetstream undone commit
+
+[33mcommit 76f210486f980c6969d653896d70311027906fc5[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Azamat Kopzhasharov <kopzha01@gmail.com>
+Date:   Thu Nov 23 01:14:44 2023 +0600
+
+    second commit: added email verification with one error (need to be fixed), but it still works 23.11.2023
+
+[33mcommit d5a244a122e52e380c52b30ddf0c3366746f920e[m
+Author: Azamat Kopzhasharov <kopzha01@gmail.com>
+Date:   Tue Nov 21 14:28:18 2023 +0600
+
+    initial commit
