@@ -6,6 +6,8 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
 
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use App\Models\User;
 
 /*
@@ -74,5 +76,10 @@ Route::get('/auth/callback', function () {
     return redirect('/dashboard');
 });
 
+
+# stripe routes
+Route::get('/stripe', 'App\Http\Controllers\StripeController@checkout')->name('checkout');
+Route::post('/session', 'App\Http\Controllers\StripeController@session')->name('session');
+Route::get('/success', 'App\Http\Controllers\StripeController@success')->name('success');
 
 require __DIR__.'/auth.php';
